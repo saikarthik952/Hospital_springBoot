@@ -12,8 +12,7 @@ import javax.persistence.Table;
 @Table(name = "UserStore")
 public class UserStore {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "o_id")
-	 @SequenceGenerator(name="o_id", sequenceName = "oid10", allocationSize=10)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	@Column(name="password")
     private String password;
