@@ -28,5 +28,23 @@ public class PatientController {
 		
 		
 	}
+	@PutMapping(value="/patient/getpatient")
+	public ResponseEntity<Patient> getpatient(@RequestBody() Patient patient) throws ResourceNotFoundException
+	{
+	
+		Patient result=patientService.getpatient(patient);
+		return ResponseEntity.ok().body(result);
+		
+		
+	}
+	@PutMapping(value="/patient/updatepatient")
+	public ResponseEntity<String> updatepatient(@RequestBody() Patient patient)
+	{
+	
+		String result=patientService.updatepatient(patient);
+		return ResponseEntity.ok().body(result);
+		
+		
+	}
 
 }
