@@ -64,11 +64,11 @@ public class PatientController {
 		
 	}
 	@GetMapping(value="/patient/viewpatients")
-    public List<Patient> viewpatients()throws ResourceNotFoundException {
+    public ResponseEntity<List<Patient>> viewpatients()throws ResourceNotFoundException {
 		System.out.println("hi");
-		List<Patient> result= patientdao.findAll();
+		List<Patient> result=patientService.getallpatients();
 		
-		return result;
+		return ResponseEntity.ok().body(result);
     }
 	
 	/*@DeleteMapping("/patient/{ws_pat_id}")
@@ -92,5 +92,5 @@ public class PatientController {
 		return ResponseEntity.ok().body(result); 
         
     }
-
+	
 }

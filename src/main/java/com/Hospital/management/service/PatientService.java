@@ -113,5 +113,10 @@ public class PatientService {
 		
 		
 	}
+	public List<Patient> getallpatients()
+	{
+		return patientdao.findAll();
+		
+	}
 	
 }
