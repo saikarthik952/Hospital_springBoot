@@ -1,4 +1,5 @@
 package com.Hospital.management.service;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -67,6 +68,37 @@ public class PatientService {
 		
 		
 	}
+	public String deletepatient(Patient p)
+	{
+		System.out.println(p.toString());
+		Patient s=patientdao.findById(p.getWs_pat_id()).get();
+		if(s==null)
+			return "Patient not Deleted Successfully";
+		
+		patientdao.delete(p);
+	
+		
+			return "Patient Deleted Successfully";
+			
+		
+		
+	}
+	public String deletepatientById(long id)
+	{
+		
+		//long myid = id;
+		Patient s=patientdao.findById(id).get();
+		if(s==null)
+			return "Patient not Deleted Successfully";
+		
+		patientdao.delete(s);
+	
+		
+			return "Patient Deleted Successfully";
+			
+		
+		
+	}
 	public Patient getpatient(Patient p) throws com.Hospital.management.execptions.ResourceNotFoundException
 	{
 		
@@ -81,4 +113,5 @@ public class PatientService {
 		
 		
 	}
+	
 }
