@@ -51,7 +51,54 @@ VALUES
 "Active",
 "single Room"
 );
-
+INSERT INTO `testdb`.`medicines`
+(
+`ws_med_avail`,
+`ws_med_name`,
+`ws_med_qty`,
+`ws_med_rate`)
+VALUES
+("Available",
+"Paracetemol",
+"100",
+"10"
+);
+INSERT INTO `testdb`.`medicines`
+(
+`ws_med_avail`,
+`ws_med_name`,
+`ws_med_qty`,
+`ws_med_rate`)
+VALUES
+("Available",
+"Crocin",
+"100",
+"10"
+);
+INSERT INTO `testdb`.`medicines`
+(
+`ws_med_avail`,
+`ws_med_name`,
+`ws_med_qty`,
+`ws_med_rate`)
+VALUES
+("Available",
+"Dolo-650",
+"100",
+"10"
+);
+INSERT INTO `testdb`.`medicines`
+(
+`ws_med_avail`,
+`ws_med_name`,
+`ws_med_qty`,
+`ws_med_rate`)
+VALUES
+("Available",
+"Meftal-Spas",
+"100",
+"10"
+);
 
 
 
