@@ -27,7 +27,7 @@ VALUES
 (
 "diag@hospital.com",
 123456789,
-"daignositics");
+"diagnositics");
 
 SELECT * FROM testdb.patient;INSERT INTO `testdb`.`patient`
 (
@@ -100,5 +100,19 @@ VALUES
 "10"
 );
 
+INSERT INTO `testdb`.`diagnostics`(`ws_diag_name`,`ws_diag_amt`)
+VALUES ("CTSCAN", 10000 );
+
+INSERT INTO `testdb`.`diagnostics`(`ws_diag_name`,`ws_diag_amt`)
+VALUES ("CBP", 10000 );
+
+INSERT INTO `testdb`.`diagnostics`(`ws_diag_name`,`ws_diag_amt`)
+VALUES ("LIPID", 10000 );
+
+INSERT INTO `testdb`.`diagnostics`(`ws_diag_name`,`ws_diag_amt`)
+VALUES ("ECG", 10000 );
+
+INSERT INTO `testdb`.`diagnostics`(`ws_diag_name`,`ws_diag_amt`)
+VALUES ("ECHO", 10000 );
 
 
