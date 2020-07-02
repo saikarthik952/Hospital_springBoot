@@ -1,13 +1,15 @@
 package com.Hospital.management.service;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
+
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Hospital.management.dao.UserStoreDao;
 import com.Hospital.management.dao.*;
 import com.Hospital.management.model.*;
 
@@ -18,6 +20,8 @@ public class PatientService {
 	
 	@Autowired
 	PatientDao patientdao;
+	PatientMedicineDao patientmedicinedao;
+	PatientDiagnosticDao patientdiagnosticdao;
 	
 	
 	public void setpsdao(PatientDao patientdao) { this.patientdao=patientdao;}
@@ -27,6 +31,8 @@ public class PatientService {
 	public String addpatient(Patient p)
 	{
 		p.setWs_pat_status("Active");
+		p.setWs_pat_nod(0);
+		p.setWs_pat_dod("");
 		Patient s=patientdao.save(p);
 	
 		System.out.println(s);
@@ -56,6 +62,11 @@ public class PatientService {
 		s.setWs_pat_state(p.getWs_pat_state());
 		s.setWs_pat_status(p.getWs_pat_status());
 		s.setWs_pat_type(p.getWs_pat_type());
+		s.setWs_pat_dod(p.getWs_pat_dod());
+		LocalDate start=LocalDate.parse(s.getWs_pat_dob());
+		LocalDate end=LocalDate.parse(s.getWs_pat_dod());
+		long days=ChronoUnit.DAYS.between(start, end);
+		s.setWs_pat_nod(days);
 		patientdao.save(s);
 		System.out.println(s);
 		
@@ -119,4 +130,39 @@ public class PatientService {
 		
 	}
 	
+	public List<PatientMedicines> getpatientmedicine(Patient p) throws com.Hospital.management.execptions.ResourceNotFoundException
+	{
+		
+		
+		List <PatientMedicines> s=patientmedicinedao.findByws_Pat_Id(p.getWs_pat_id());
+		for(PatientMedicines q : s)
+			System.out.println(q);
+		if(s==null)
+		{
+			
+			return s;
+		}
+		return s;
+		
+		
+	}
+	
+	public List<PatientDiagnostics> getpatientdiagnostics(Patient p) throws com.Hospital.management.execptions.ResourceNotFoundException
+	{
+		
+		
+		List <PatientDiagnostics> s=patientdiagnosticdao.findByws_Pat_Id(p.getWs_pat_id());
+		for(PatientDiagnostics q : s)
+			System.out.println(q);
+		if(s==null)
+		{
+			
+			return s;
+		}
+		return s;
+		
+		
+	}
+	
 }
+ 
