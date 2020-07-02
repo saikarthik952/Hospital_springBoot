@@ -39,7 +39,9 @@ SELECT * FROM testdb.patient;INSERT INTO `testdb`.`patient`
 `ws_pat_ssn`,
 `ws_pat_state`,
 `ws_pat_status`,
-`ws_pat_type`)
+`ws_pat_type`,
+`ws_pat_dod`,
+`ws_pat_nod`)
 VALUES
 ("address",
 "10",
@@ -49,7 +51,9 @@ VALUES
 "123456789",
 "Telangana",
 "Active",
-"single Room"
+"single Room",
+"2020-03-09",
+10
 );
 INSERT INTO `testdb`.`medicines`
 (
@@ -109,6 +113,7 @@ VALUES ("CBP", 10000 );
 INSERT INTO `testdb`.`diagnostics`(`ws_diag_name`,`ws_diag_amt`)
 VALUES ("LIPID", 10000 );
 
+
 INSERT INTO `testdb`.`diagnostics`(`ws_diag_name`,`ws_diag_amt`)
 VALUES ("ECG", 10000 );
 
@@ -116,3 +121,14 @@ INSERT INTO `testdb`.`diagnostics`(`ws_diag_name`,`ws_diag_amt`)
 VALUES ("ECHO", 10000 );
 
 
+INSERT INTO `testdb`.`patientdiagnostics`(`ws_diag_amt`,`ws_diag_name`,`ws_pat_id`)
+VALUES (10000,"CBP",1);
+
+INSERT INTO `testdb`.`patientdiagnostics`(`ws_diag_amt`,`ws_diag_name`,`ws_pat_id`)
+VALUES (10000,"ECG",1);
+
+INSERT INTO `testdb`.`patientmedicines`(`ws_pat_id`,`ws_med_name`,`ws_med_qty`,`ws_med_rate`,`ws_med_amt`)
+VALUES (1,"Crocin",10,100,1000);
+
+INSERT INTO `testdb`.`patientmedicines`(`ws_pat_id`,`ws_med_name`,`ws_med_qty`,`ws_med_rate`,`ws_med_amt`)
+VALUES (1,"Dolo-650",11,100,1100);

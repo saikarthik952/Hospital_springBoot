@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.Hospital.management.model.Patient;
+import com.Hospital.management.model.PatientDiagnostics;
+import com.Hospital.management.model.PatientMedicines;
 import com.Hospital.management.service.PatientService;
 import com.Hospital.management.dao.PatientDao;
+import com.Hospital.management.dao.PatientDiagnosticDao;
+import com.Hospital.management.dao.PatientMedicineDao;
 import com.Hospital.management.execptions.ResourceNotFoundException;
 @RestController @CrossOrigin(origins = "http://localhost:4200")
 
@@ -26,6 +30,8 @@ public class PatientController {
 	@Autowired
 	PatientService patientService;
 	PatientDao patientdao;
+	PatientMedicineDao patientmedicinedao;
+	PatientDiagnosticDao patientdiagnosticdao;
 	
 	@PostMapping(value="/patient/add")
 	public ResponseEntity<String> addpatient(@RequestBody() Patient patient)
@@ -36,11 +42,32 @@ public class PatientController {
 		
 		
 	}
+	
 	@PutMapping(value="/patient/getpatient")
 	public ResponseEntity<Patient> getpatient(@RequestBody() Patient patient) throws ResourceNotFoundException
 	{
 	
 		Patient result=patientService.getpatient(patient);
+		return ResponseEntity.ok().body(result);
+		
+		
+	}
+	
+	@PutMapping(value="/patient/getpatientmedicines")
+	public ResponseEntity<List<PatientMedicines>> getpatientmedicine(@RequestBody() Patient patient) throws ResourceNotFoundException
+	{
+	
+		List <PatientMedicines> result=patientService.getpatientmedicine(patient);
+		return ResponseEntity.ok().body(result);
+		
+		
+	}
+	
+	@PutMapping(value="/patient/getpatientdiagnostics")
+	public ResponseEntity <List<PatientDiagnostics>> getpatientdiagnostics(@RequestBody() Patient patient) throws ResourceNotFoundException
+	{
+	
+		List <PatientDiagnostics> result=patientService.getpatientdiagnostics(patient);
 		return ResponseEntity.ok().body(result);
 		
 		

@@ -34,10 +34,10 @@ public class Patient {
 			return "Patient [ws_pat_id=" + ws_pat_id + ", ws_pat_name=" + ws_pat_name + ", ws_pat_ssn=" + ws_pat_ssn
 					+ ", ws_pat_adrs=" + ws_pat_adrs + ", ws_pat_age=" + ws_pat_age + ", ws_pat_dob=" + ws_pat_dob
 					+ ", ws_pat_type=" + ws_pat_type + ", ws_pat_city=" + ws_pat_city + ", ws_pat_state=" + ws_pat_state
-					+ ", ws_pat_status=" + ws_pat_status + "]";
+					+ ", ws_pat_status=" + ws_pat_status + ", ws_pat_dod=" + ws_pat_dod +", ws_pat_nod=" + ws_pat_nod + "]";
 		}
 		public Patient(long ws_pat_id, String ws_pat_name, String ws_pat_ssn, String ws_pat_adrs, String ws_pat_age,
-				String ws_pat_dob, String ws_pat_type, String ws_pat_city, String ws_pat_state, String ws_pat_status) {
+				String ws_pat_dob, String ws_pat_type, String ws_pat_city, String ws_pat_state, String ws_pat_status, String ws_pat_dod, long ws_pat_nod) {
 			super();
 			this.ws_pat_id = ws_pat_id;
 			this.ws_pat_name = ws_pat_name;
@@ -49,6 +49,20 @@ public class Patient {
 			this.ws_pat_city = ws_pat_city;
 			this.ws_pat_state = ws_pat_state;
 			this.ws_pat_status = ws_pat_status;
+			this.ws_pat_dod = ws_pat_dod;
+			this.ws_pat_nod = ws_pat_nod;
+		}
+		public long getWs_pat_nod() {
+			return ws_pat_nod;
+		}
+		public void setWs_pat_nod(long ws_pat_nod) {
+			this.ws_pat_nod = ws_pat_nod;
+		}
+		public String getWs_pat_dod() {
+			return ws_pat_dod;
+		}
+		public void setWs_pat_dod(String ws_pat_dod) {
+			this.ws_pat_dod = ws_pat_dod;
 		}
 		public long getWs_pat_id() {
 			return ws_pat_id;
@@ -116,6 +130,9 @@ public class Patient {
 	 	private String ws_pat_state;
 	 	@Column(name="ws_pat_status")
 	 	private String ws_pat_status;
-	 
+	 	@Column(name="ws_pat_dod")
+	 	private String ws_pat_dod;
+	 	@Column(name="ws_pat_nod")
+	 	private long ws_pat_nod;
 
 }
